@@ -39,9 +39,6 @@ jobs:
       - name: Run outreach
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GMAIL_CREDENTIALS_SABINA: ${{ secrets.GMAIL_CREDENTIALS_SABINA }}
-          GMAIL_CREDENTIALS_DRVCARES: ${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}
-          GMAIL_KEYS: ${{ secrets.GMAIL_KEYS }}
           CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
           DRVCARES_APP_PASSWORD: ${{ secrets.DRVCARES_APP_PASSWORD }}
         run: node runner.js ${{ github.event.inputs.client }}
