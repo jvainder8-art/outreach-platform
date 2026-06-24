@@ -23,11 +23,15 @@ jobs:
         run: npm install
 
       - name: Write Google credentials
+        env:
+          GMAIL_KEYS: ${{ secrets.GMAIL_KEYS }}
+          GMAIL_CREDENTIALS_SABINA: ${{ secrets.GMAIL_CREDENTIALS_SABINA }}
+          GMAIL_CREDENTIALS_DRVCARES: ${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}
         run: |
           mkdir -p ~/.gmail-mcp
-          echo '${{ secrets.GMAIL_KEYS }}' > ~/.gmail-mcp/gcp-oauth.keys.json
-          echo '${{ secrets.GMAIL_CREDENTIALS_SABINA }}' > ~/.gmail-mcp/credentials.json
-          echo '${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}' > ~/.gmail-mcp/drvcares-credentials.json
+          printf '%s' "$GMAIL_KEYS" > ~/.gmail-mcp/gcp-oauth.keys.json
+          printf '%s' "$GMAIL_CREDENTIALS_SABINA" > ~/.gmail-mcp/credentials.json
+          printf '%s' "$GMAIL_CREDENTIALS_DRVCARES" > ~/.gmail-mcp/drvcares-credentials.json
 
       - name: Write DRVCares welcome packet
         run: |
