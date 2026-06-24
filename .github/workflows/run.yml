@@ -30,10 +30,11 @@ jobs:
           echo '${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}' > ~/.gmail-mcp/drvcares-credentials.json
 
       - name: Write DRVCares welcome packet
-        if: ${{ secrets.DRVCARES_WELCOME_PACKET_B64 != '' }}
         run: |
-          echo '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' | base64 --decode > /tmp/drvcares-welcome-packet.pdf
-          echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
+          if [ -n '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' ]; then
+            echo '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' | base64 --decode > /tmp/drvcares-welcome-packet.pdf
+            echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
+          fi
 
       - name: Run outreach
         env:
