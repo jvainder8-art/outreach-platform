@@ -1,0 +1,6 @@
+node_modules/
+.env
+clients/*/credentials.json
+clients/*/.env
+*.pdf
+log.txt

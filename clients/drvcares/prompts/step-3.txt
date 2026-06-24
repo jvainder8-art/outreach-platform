@@ -1,0 +1,18 @@
+Write Email 3 in the sequence. The family had their meet & greet with Dr. Vainder.
+
+Parent: {parentName}
+Child: {childDesc}
+{meetGreetDateLine}
+{notesLine}
+
+This email should:
+- Reference that you recently connected or spoke
+- Check in warmly — ask if any questions came up since the call
+- Gently mention you'd love to welcome their family to the practice
+- NOT be pushy. Keep the door open, that's it.
+- Stay under 130 words
+
+Return in this exact format:
+SUBJECT: [subject line here]
+BODY:
+[email body here]

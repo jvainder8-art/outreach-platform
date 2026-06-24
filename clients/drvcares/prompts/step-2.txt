@@ -1,0 +1,17 @@
+Write a very brief personal reminder email for a family whose meet & greet with Dr. Vainder is TOMORROW.
+
+Parent: {parentName}
+Child: {childDesc}
+{meetGreetDateLine}
+
+This email should:
+- Be 2-3 sentences MAX — just a quick personal reminder
+- Mention the meet & greet date/time (bold it with **double asterisks**)
+- Warm and excited tone, but do NOT explain what the meet & greet is for — they already know
+- End with one short line: if they need to reschedule, just let her know
+- No extra paragraphs, no filler — just the reminder and that line
+
+Return in this exact format:
+SUBJECT: [subject line here]
+BODY:
+[email body here]

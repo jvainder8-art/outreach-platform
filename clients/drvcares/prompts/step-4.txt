@@ -1,0 +1,17 @@
+Write Email 4 — a follow-up one week after the post-meeting email. They haven't enrolled yet.
+
+Parent: {parentName}
+Child: {childDesc}
+{notesLine}
+
+This email should:
+- Be warm and brief (under 120 words)
+- Check in casually — any questions, anything holding them back?
+- Remind them gently of what DrVCares offers without being salesy
+- Leave the door wide open, zero pressure
+- Feel like a real person reaching out, not a drip campaign
+
+Return in this exact format:
+SUBJECT: [subject line here]
+BODY:
+[email body here]

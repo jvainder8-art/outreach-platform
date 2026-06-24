@@ -1,0 +1,17 @@
+Write Email 5 — the final email in the sequence. Two weeks have passed since the last follow-up and they still haven't enrolled.
+
+Parent: {parentName}
+Child: {childDesc}
+{notesLine}
+
+This email should:
+- Be the shortest of all — under 90 words
+- Be genuinely warm, not a sales close
+- Let them know you're here whenever they're ready, no expiration on that
+- End with something that shows you care about the child regardless of their decision
+- Feel like a human who remembered them, not an automated sequence
+
+Return in this exact format:
+SUBJECT: [subject line here]
+BODY:
+[email body here]

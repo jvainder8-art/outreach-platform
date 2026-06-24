@@ -1,0 +1,31 @@
+{
+  "name": "Sabina Ruzmetov",
+  "type": "cold-outreach",
+  "auth": {
+    "method": "oauth",
+    "keysPath": "~/.gmail-mcp/gcp-oauth.keys.json",
+    "keysEnvVar": "GMAIL_KEYS",
+    "credsPath": "~/.gmail-mcp/credentials.json",
+    "credsEnvVar": "GMAIL_CREDENTIALS_SABINA"
+  },
+  "sheetId": "17eNt-MngcsY26mc9gL34wnv3uwcQ9GoTpwUQkrFk0cM",
+  "sheetRange": "A:K",
+  "emailsPerRun": 50,
+  "columns": {
+    "firstName": 0,
+    "email": 2,
+    "status": 7
+  },
+  "ai": {
+    "provider": "gemini",
+    "model": "gemini-1.5-flash",
+    "apiKeyEnvVar": "GEMINI_API_KEY"
+  },
+  "persona": {
+    "subject": "Elevating Your Brand Together",
+    "bio": "a Miami lifestyle and fashion content creator who has a Bengal cat",
+    "intro": "My name is Sabina Ruzmetov and I am a content creator based in Miami, Florida. I create lifestyle and fashion content and love featuring my Bengal cat in my work.",
+    "cta": "I would love the opportunity to create high-quality content for your brand through carousels, reels, stories, and UGC posts. I am happy to discuss whatever would work best for your brand and align with your values.\n\nIf a collaboration is not available right now, I would love to be added to your PR list.",
+    "signature": "Instagram and TikTok: @sabina.ruz\nPortfolio: https://ugcsabina.my.canva.site/ugc\n\nLooking forward to hearing from you,\nSabina"
+  }
+}

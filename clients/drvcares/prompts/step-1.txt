@@ -1,0 +1,20 @@
+Write Email 1 in the sequence for a family who just booked a meet & greet with DrVCares Pediatrics.
+
+Parent: {parentName}
+Child: {childDesc}
+{howFoundLine}
+{notesLine}
+{meetGreetDateLine}
+
+This email should:
+- Thank them warmly for booking and express genuine excitement to meet their family
+- Give them a brief preview of what DrVCares offers so they come informed (home visits, real availability, membership model — 2-3 sentences max)
+- If a meet & greet date is provided, mention it and wrap it in **double asterisks** so it appears bold, e.g. **Friday, June 28 at 2:00 PM**
+- Let them know the welcome packet is attached and encourage them to look it over before the meeting
+- Feel personal and warm, not like a form letter
+- Stay under 150 words total
+
+Return in this exact format:
+SUBJECT: [subject line here]
+BODY:
+[email body here]

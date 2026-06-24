@@ -1,0 +1,48 @@
+{
+  "name": "DrVCares Pediatrics",
+  "type": "nurture-sequence",
+  "auth": {
+    "gmail": {
+      "method": "app-password",
+      "email": "drvainder@drvcares.com",
+      "displayName": "Dr. Elizabeth Vainder, MD, FAAP",
+      "passwordEnvVar": "DRVCARES_APP_PASSWORD"
+    },
+    "sheets": {
+      "method": "oauth",
+      "keysPath": "~/.gmail-mcp/gcp-oauth.keys.json",
+      "keysEnvVar": "GMAIL_KEYS",
+      "credsPath": "~/.gmail-mcp/drvcares-credentials.json",
+      "credsEnvVar": "GMAIL_CREDENTIALS_DRVCARES"
+    }
+  },
+  "sheetId": "1pmILU9UYn6mzJD_xpnviYbpbmzlFIVX4Eo0CIoyoZFw",
+  "sheetRange": "Sheet1!A2:K",
+  "columns": {
+    "parentName": 0,
+    "childInfo": 1,
+    "email": 2,
+    "dateInquired": 3,
+    "howFound": 4,
+    "notes": 5,
+    "stage": 6,
+    "lastEmail": 7,
+    "lastEmailDate": 8,
+    "meetGreetDate": 9
+  },
+  "skipStages": ["enrolled", "not interested", "unsubscribed", "do not contact"],
+  "welcomePacketGlob": "/Users/jordan.vainder/Desktop/Projects/jordan-outreach/Welcome Packet 05-2026*.pdf",
+  "ai": {
+    "provider": "claude",
+    "model": "claude-haiku-4-5-20251001",
+    "apiKeyEnvVar": "CLAUDE_API_KEY",
+    "maxTokens": 600
+  },
+  "sequence": [
+    { "step": 1, "trigger": "new", "mode": "draft", "attachWelcomePacket": true },
+    { "step": 2, "trigger": "meeting-tomorrow", "mode": "send" },
+    { "step": 3, "trigger": "meeting-past", "delayDays": 1, "mode": "draft" },
+    { "step": 4, "trigger": "step-sent", "afterStep": 3, "delayDays": 7, "mode": "draft" },
+    { "step": 5, "trigger": "step-sent", "afterStep": 4, "delayDays": 14, "mode": "draft" }
+  ]
+}

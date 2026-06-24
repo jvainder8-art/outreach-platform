@@ -1,0 +1,46 @@
+name: Outreach Platform
+
+on:
+  schedule:
+    - cron: '*/20 12-21 * * 1-5'  # every 20 min, 8am-5pm ET, Mon-Fri
+  workflow_dispatch:
+    inputs:
+      client:
+        description: 'Run a specific client only (leave blank for all)'
+        required: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Write Google credentials
+        run: |
+          mkdir -p ~/.gmail-mcp
+          echo '${{ secrets.GMAIL_KEYS }}' > ~/.gmail-mcp/gcp-oauth.keys.json
+          echo '${{ secrets.GMAIL_CREDENTIALS_SABINA }}' > ~/.gmail-mcp/credentials.json
+          echo '${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}' > ~/.gmail-mcp/drvcares-credentials.json
+
+      - name: Write DRVCares welcome packet
+        if: ${{ secrets.DRVCARES_WELCOME_PACKET_B64 != '' }}
+        run: |
+          echo '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' | base64 --decode > /tmp/drvcares-welcome-packet.pdf
+          echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
+
+      - name: Run outreach
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_CREDENTIALS_SABINA: ${{ secrets.GMAIL_CREDENTIALS_SABINA }}
+          GMAIL_CREDENTIALS_DRVCARES: ${{ secrets.GMAIL_CREDENTIALS_DRVCARES }}
+          GMAIL_KEYS: ${{ secrets.GMAIL_KEYS }}
+          CLAUDE_API_KEY: ${{ secrets.CLAUDE_API_KEY }}
+          DRVCARES_APP_PASSWORD: ${{ secrets.DRVCARES_APP_PASSWORD }}
+        run: node runner.js ${{ github.event.inputs.client }}
