@@ -31,7 +31,7 @@
     "meetGreetDate": 9
   },
   "skipStages": ["enrolled", "not interested", "unsubscribed", "do not contact"],
-  "welcomePacketGlob": "/Users/jordan.vainder/Desktop/Projects/jordan-outreach/Welcome Packet 05-2026*.pdf",
+  "welcomePacketGlob": null,
   "ai": {
     "provider": "claude",
     "model": "claude-haiku-4-5-20251001",

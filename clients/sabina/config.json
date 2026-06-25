@@ -10,7 +10,7 @@
   },
   "sheetId": "17eNt-MngcsY26mc9gL34wnv3uwcQ9GoTpwUQkrFk0cM",
   "sheetRange": "A:K",
-  "emailsPerRun": 50,
+  "emailsPerRun": 25,
   "columns": {
     "firstName": 0,
     "email": 2,

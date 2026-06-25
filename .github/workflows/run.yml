@@ -1,8 +1,6 @@
 name: Outreach Platform
 
 on:
-  schedule:
-    - cron: '*/20 12-21 * * 1-5'  # every 20 min, 8am-5pm ET, Mon-Fri
   workflow_dispatch:
     inputs:
       client:
