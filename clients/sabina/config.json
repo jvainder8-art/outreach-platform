@@ -14,7 +14,8 @@
   "columns": {
     "firstName": 0,
     "email": 2,
-    "status": 7
+    "status": 7,
+    "sentToday": 10
   },
   "ai": {
     "provider": "gemini",
