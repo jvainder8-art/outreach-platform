@@ -32,14 +32,12 @@ jobs:
           printf '%s' "$GMAIL_CREDENTIALS_SABINA" > ~/.gmail-mcp/credentials.json
           printf '%s' "$GMAIL_CREDENTIALS_DRVCARES" > ~/.gmail-mcp/drvcares-credentials.json
 
-      - name: Write DRVCares welcome packet
+      - name: Download DRVCares welcome packet
         env:
-          DRVCARES_WELCOME_PACKET_B64: ${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if [ -n "$DRVCARES_WELCOME_PACKET_B64" ]; then
-            printf '%s' "$DRVCARES_WELCOME_PACKET_B64" | base64 --decode > /tmp/drvcares-welcome-packet.pdf
-            echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
-          fi
+          gh release download assets --repo jvainder8-art/outreach-platform --pattern "*.pdf" --output /tmp/drvcares-welcome-packet.pdf
+          echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
 
       - name: Run outreach
         env:
