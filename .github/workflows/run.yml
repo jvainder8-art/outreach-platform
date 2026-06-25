@@ -32,9 +32,11 @@ jobs:
           printf '%s' "$GMAIL_CREDENTIALS_DRVCARES" > ~/.gmail-mcp/drvcares-credentials.json
 
       - name: Write DRVCares welcome packet
+        env:
+          DRVCARES_WELCOME_PACKET_B64: ${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}
         run: |
-          if [ -n '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' ]; then
-            echo '${{ secrets.DRVCARES_WELCOME_PACKET_B64 }}' | base64 --decode > /tmp/drvcares-welcome-packet.pdf
+          if [ -n "$DRVCARES_WELCOME_PACKET_B64" ]; then
+            printf '%s' "$DRVCARES_WELCOME_PACKET_B64" | base64 --decode > /tmp/drvcares-welcome-packet.pdf
             echo "DRVCARES_WELCOME_PACKET_PATH=/tmp/drvcares-welcome-packet.pdf" >> $GITHUB_ENV
           fi
 
