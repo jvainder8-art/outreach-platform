@@ -3,6 +3,7 @@
   "type": "cold-outreach",
   "auth": {
     "method": "oauth",
+    "displayName": "Sabina Ruzmetov",
     "keysPath": "~/.gmail-mcp/gcp-oauth.keys.json",
     "keysEnvVar": "GMAIL_KEYS",
     "credsPath": "~/.gmail-mcp/credentials.json",
