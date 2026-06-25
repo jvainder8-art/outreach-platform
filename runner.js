@@ -46,7 +46,7 @@ async function main() {
         log(`Unknown type for ${clientName}: ${config.type}`);
       }
     } catch (err) {
-      log(`Fatal error for ${clientName}: ${err.message}`);
+      log(`Fatal error for ${clientName}: ${err.stack || err.message}`);
       anyFailed = true;
     }
   }
