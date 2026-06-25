@@ -4,6 +4,7 @@
   "auth": {
     "method": "oauth",
     "displayName": "Sabina Ruzmetov",
+    "email": "sabinalruz@gmail.com",
     "keysPath": "~/.gmail-mcp/gcp-oauth.keys.json",
     "keysEnvVar": "GMAIL_KEYS",
     "credsPath": "~/.gmail-mcp/credentials.json",
