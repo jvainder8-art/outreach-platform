@@ -26,6 +26,8 @@ async function main() {
 
   log(`Running ${clients.length} client(s): ${clients.join(', ')}`);
 
+  let anyFailed = false;
+
   for (const clientName of clients) {
     const clientDir = path.join(CLIENTS_DIR, clientName);
     const config = JSON.parse(fs.readFileSync(path.join(clientDir, 'config.json')));
@@ -45,10 +47,12 @@ async function main() {
       }
     } catch (err) {
       log(`Fatal error for ${clientName}: ${err.message}`);
+      anyFailed = true;
     }
   }
 
   log('All clients complete.');
+  if (anyFailed) process.exit(1);
 }
 
 main();
